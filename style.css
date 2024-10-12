@@ -1,0 +1,23 @@
+.nft-marketplace-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nft-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #0073aa;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nft-button svg {
+    margin-right: 8px;
+}
+
+.nft-button:hover {
+    background-color: #005177;
+}
