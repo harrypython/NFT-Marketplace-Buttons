@@ -2,7 +2,7 @@
 /*
 Plugin Name: NFT Marketplace Buttons
 Description: Adds buttons to NFT marketplaces using a shortcode.
-Version: 1.3
+Version: 1.0
 Author: Harry Python
 */
 
