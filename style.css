@@ -1,23 +1,35 @@
 .nft-marketplace-buttons {
     display: flex;
-    gap: 10px;
+    justify-content: center; /* Center the button horizontally */
+    align-items: center; /* Center the button vertically, if needed */
 }
 
-.nft-button {
+.nft-marketplace-buttons .nft-button {
     display: inline-flex;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #0073aa;
-    color: #fff;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: inherit; /* Button text color */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Add transition for animation */
 }
 
-.nft-button svg {
+.nft-marketplace-buttons .nft-button svg {
+    height: 24px; /* Adjusted size */
     margin-right: 8px;
 }
 
-.nft-button:hover {
-    background-color: #005177;
+.nft-marketplace-buttons .nft-button .nft-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nft-marketplace-buttons .nft-button .buy-text {
+    color: black; /* Text color for "Buy on" */
+    margin-right: 8px; /* Space between text and icon */
+}
+
+.nft-marketplace-buttons .nft-button:hover {
+    transform: scale(1.05); /* Slightly enlarge the button */
+    background-color: #f0f0f0; /* Change background color on hover */
 }

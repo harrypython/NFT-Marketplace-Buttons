@@ -1,39 +1,80 @@
-# NFT Marketplace Buttons
+# NFT Marketplace Buttons Plugin
 
-**Version:** 1.0  
-**Author:** Harry Python
+**Version**: 1.0  
+**Author**: Harry Python
 
 ## Description
 
-The NFT Marketplace Buttons plugin adds buttons to various NFT marketplaces using a shortcode. This allows users to easily link to their NFTs on popular marketplaces like Rarible, LooksRare, and Objkt.
+The NFT Marketplace Buttons plugin adds customizable buttons to your WordPress site, linking to various NFT marketplaces. Each button includes a shopping cart icon, the text "Buy on," and the marketplace's logo.
+
+## Features
+
+- Supports multiple NFT marketplaces (e.g., Objkt, Rarible, Foundation).
+- Displays a customizable button with a shopping cart icon, the text "Buy on," and the marketplace's logo.
+- Easy to use with a simple shortcode.
+- Lightweight and flexible.
 
 ## Installation
 
-1. Download the plugin files and upload them to your WordPress site's `wp-content/plugins` directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Ensure you have the required styles by enqueuing the `style.css` file included with the plugin.
+1. Download the `nft-marketplace-buttons` plugin.
+2. Upload the plugin to the `wp-content/plugins` directory.
+3. Activate the plugin through the 'Plugins' menu in WordPress.
+4. Place your SVG icons in the `icons` directory of the plugin.
 
 ## Usage
 
-To use the plugin, add the following shortcode to your posts or pages:
+Add the following shortcode to any post or page:
 
-```php
-[smp contract="your_contract_address" blockchain="your_blockchain" network="your_network" token_id="your_token_id" marketplace="your_marketplace"]
-````
+```text
+[nft_marketplace_buttons marketplace="marketplace_name" url="marketplace_url" button_text="button_text"]
 
-## Shortcode Attributes
- - contract (required): The contract address of the NFT.
-- blockchain (required): The blockchain on which the NFT resides.
-- network (optional): The network type (default is mainnet).
-- token_id (optional): The ID of the specific token.
-- marketplace (required): The marketplace to link to (rarible, looksrare, objkt).
+Replace marketplace_name with the name of the marketplace (e.g., objkt, rarible, foundation), marketplace_url with the URL of your marketplace listing, and button_text with the desired text for the button (e.g., "Bid," "Make an Offer"). The button_text parameter is optional and will default to "Buy" if not provided.
 
 ## Example
-```php
-[smp contract="0x1234567890abcdef" blockchain="ethereum" network="mainnet" token_id="1" marketplace="rarible"]
-```
+```text
+[nft_marketplace_buttons marketplace="objkt" url="https://objkt.com/tokens/KT1Feeb2hAvAnR4vqU2XC5HKXdQNYUZLbHsM/"]
 
-## Supported Marketplaces
-- Rarible
-- LooksRare
-- Objkt
+This will generate a button linking to your NFT listing on Objkt.
+
+To customize the button text:
+
+[nft_marketplace_buttons marketplace="objkt" url="https://objkt.com/collection/KT1Feeb2hAvAnR4vqU2XC5HKXdQNYUZLbHsM/" button_text="Bid"]
+
+
+# Customization
+## CSS
+You can customize the appearance of the buttons by editing the style.css file in the plugin directory.
+
+```css
+.nft-marketplace-buttons .nft-button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: inherit;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.nft-marketplace-buttons .nft-button svg {
+    height: 24px;
+    margin-right: 8px;
+}
+
+.nft-marketplace-buttons .nft-button .nft-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nft-marketplace-buttons .nft-button .buy-text {
+    color: black;
+    margin-right: 8px;
+}
+
+.nft-marketplace-buttons .nft-button:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+# License
+This plugin is open-source and free to use under Apache License.
