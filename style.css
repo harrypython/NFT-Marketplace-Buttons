@@ -24,12 +24,21 @@
     align-items: center;
 }
 
+.nft-marketplace-buttons .nft-button .nft-icon img {
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
 .nft-marketplace-buttons .nft-button .buy-text {
-    color: black; /* Text color for "Buy on" */
-    margin-right: 8px; /* Space between text and icon */
+    color: black;  /* Text color for "Buy on" */
+    margin-right: 8px;  /* Space between text and icon */
 }
 
 .nft-marketplace-buttons .nft-button:hover {
-    transform: scale(1.05); /* Slightly enlarge the button */
-    background-color: #f0f0f0; /* Change background color on hover */
+    transform: scale(1.05);
+    /* Slightly enlarge the button */
+    background-color: #f0f0f0;
+    /* Change background color on hover */
 }

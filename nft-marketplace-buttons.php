@@ -2,20 +2,22 @@
 /*
 Plugin Name: NFT Marketplace Buttons
 Description: Adds buttons to NFT marketplaces using a shortcode.
-Version: 1.0
+Version: 1.0.1
 Author: Harry Python
 */
 
-// Function to get SVG content from file
-function get_svg_icon($marketplace) {
-    $file_path = plugin_dir_path(__FILE__) . 'icons/' . $marketplace . '.svg';
-    
-    if (file_exists($file_path)) {
-        return file_get_contents($file_path);
+// Function to get icon content from file (supports SVG, PNG, etc.)
+function get_icon($marketplace) {
+    $extensions = ['svg', 'png', 'jpg', 'gif']; // Supported extensions
+    foreach ($extensions as $ext) {
+        $file_path = plugin_dir_path(__FILE__) . 'icons/' . $marketplace . '.' . $ext;
+        if (file_exists($file_path)) {
+            return '<img src="' . plugin_dir_url(__FILE__) . 'icons/' . $marketplace . '.' . $ext . '" alt="' . esc_attr($marketplace) . ' icon">';
+        }
     }
-
     return '';
 }
+
 
 // Function to handle the shortcode
 function nft_marketplace_buttons_shortcode($atts) {
@@ -41,7 +43,7 @@ function nft_marketplace_buttons_shortcode($atts) {
     }
 
     // Get the SVG icon content
-    $icon = get_svg_icon($marketplace);
+    $icon = get_icon($marketplace);
     if (empty($icon)) {
         return 'Invalid marketplace specified or icon not found.';
     }
